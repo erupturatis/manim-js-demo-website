@@ -1,5 +1,4 @@
-import { initializeImages ,triggerAlert , applyStates, iterateStatesRight, iterateStatesLeft} from "./carousel.js";
-
+import { initializeImages, iterateStatesRight, iterateStatesLeft} from "./carousel.js";
 
 
 // manages the page loading
@@ -7,8 +6,6 @@ import { initializeImages ,triggerAlert , applyStates, iterateStatesRight, itera
 async function setCarousel() {
     // set carousel
     let root= document.getElementById('app');
-    const page = await fetch('./partials/carousel.html');
-   root.innerHTML = await page.text();
     initializeImages();
     let button = document.getElementById('buttonRight');
     button.addEventListener('click', function () {
