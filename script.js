@@ -81,7 +81,7 @@ class Effect {
     }
 
     init(context) {
-        // document.getElementById("canvas1").style.display = "none";
+        document.getElementById("canvas1").style.display = "none";
         context.drawImage(this.image, this.x, this.y);
         const pixels = context.getImageData(0, 0, this.width, this.height).data;
         for (let y = 0; y < this.height; y += this.gap) {
