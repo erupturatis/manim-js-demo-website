@@ -108,3 +108,26 @@ body {
 .purple{
     background-color: purple;
 }
+@media (max-width: 768px) {
+    :root {
+        --wimg: 150px;
+        --himg: 75px;
+    }
+    .img1cls {
+        left: -100px
+    }
+    .img2cls {
+        left: -50px
+    }
+    .img3cls {
+        left: 0px;
+    }
+    .img4cls {
+        left: 50px
+    }
+    .img5cls {
+        left: 100px;
+
+    }
+
+}
