@@ -1,10 +1,4 @@
 
-const canvas = document.getElementById("canvas1");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const image1 = document.getElementById("image1");
 
 class Particle {
     constructor(effect, x, y, color) {
@@ -117,36 +111,40 @@ class Effect {
     }
 }
 
-const effect = new Effect(canvas.width, canvas.height);
-effect.init(ctx);
+function execStart(){
 
-window.addEventListener("load", function () {
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        effect.draw(ctx);
-        effect.update();
-        document.getElementById("canvas1").style.display = "block";
-        requestAnimationFrame(animate);
-    }
+    const canvas = document.getElementById("canvas1");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    function factory(instance, method, arg) {
-        return () => {
-            instance.chooseMethod(method, arg)();
-        };
-    }
+    const image1 = document.getElementById("image1");
+    const effect = new Effect(canvas.width, canvas.height);
+    effect.init(ctx);
 
-    let warp = factory(effect, "warp", [0.1]);
-    this.document.getElementById("warpButton").addEventListener("click", warp);
+    window.addEventListener("load", function () {
+        function animate() {
+            console.log("animating")
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            effect.draw(ctx);
+            effect.update();
+            document.getElementById("canvas1").style.display = "block";
+            requestAnimationFrame(animate);
+        }
 
-    animate();
-});
+        animate();
+    });
 
-function setRadius(radius) {
+}
+
+
+
+function setRadius(effect, radius) {
     effect.mouse.radius = radius;
 }
-function setEase(ease) {
+function setEase(effect, ease) {
     console.log(ease);
     effect.ease = ease;
 }
 
-export { setRadius, setEase };
+export { setRadius, setEase, execStart };
